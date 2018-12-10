@@ -6,5 +6,11 @@ by Oskar Lundqvist /
 Abrovinsch (c) 2018
 """
 
-def start():
-    print('Blenda')
+class Tokenizer:
+    """Creates tokens from text"""
+    def __init__(self, code):
+        self.code = code
+
+    def tokenize(self):
+        return self.code.split(' ')
+s
