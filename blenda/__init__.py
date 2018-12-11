@@ -86,17 +86,25 @@ class Parser:
 
     def parse_talker(self):
         name = self.consume('identifier').value
+        words = []
+        children = []
+
         self.consume('obracket')
-        words = self.parse_string_list()
+        while not self.peek('cbracket'):
+            if self.peek('string'):
+                words.extend(self.parse_string_list())
+            elif self.peek('identifier'):
+                x = self.parse_talker()
+                children.append(x)
+
         self.consume('cbracket')
-        return Talker(name, words,)
+        return Talker(name, words, children)
 
     def parse_string_list(self):
         strings = []
         if self.peek('string'):
             strings.append(self.consume('string').value)
-            while self.peek('comma'):
-                self.consume('comma')
+            while self.peek('string'):
                 strings.append(self.consume('string').value)
         return strings
 
@@ -113,4 +121,7 @@ class Talker:
         self.children = children
 
     def __str__(self):
-        return 'TALKER(name="%s" words=%s children=%s)' % (self.name, self.words, self.children)
+        children_text = []
+        for c in self.children:
+            children_text.append(str(c))
+        return 'TALKER(name="%s" words=%s children=%s)' % (self.name, self.words, children_text)

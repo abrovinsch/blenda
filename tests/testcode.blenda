@@ -1,5 +1,15 @@
-f {
-   "k  asd"
+namn {
+   "Jan"
+   "Anna"
+   "Klara"
+   bo {"a"}
+   dag {
+      "b"
+      hund {
+         "c"
+         "d"
+      }
+   }
 }
 
-hej{"hallå"  ,"k"}
+hej{"hallå"  "k"}
