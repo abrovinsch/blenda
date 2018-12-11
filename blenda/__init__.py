@@ -7,6 +7,11 @@ Abrovinsch (c) 2018
 """
 
 import re
+import codecs
+
+def load_blenda_file(path):
+    file = open(path)
+    return file.read()
 
 class Token:
     """Represents a single token"""

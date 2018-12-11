@@ -1,0 +1,18 @@
+
+origin{
+   (hej) (namn)
+}
+
+hej{
+   [
+      hej
+      hallå
+      (me.pronoun)
+   ]
+   pronoun {
+      she
+   }
+
+}
+
+kalle { kalle }
