@@ -4,10 +4,14 @@ import blenda
 
 # Test tokenizer
 def test_tokenizer(code):
-    x = blenda.Tokenizer(code)
-    tokens = x.tokenize()
+    tokenizer = blenda.Tokenizer(code)
+    tokens = tokenizer.tokenize()
     for t in tokens:
         print(t)
+
+    parser = blenda.Parser(tokens)
+    for n in parser.parse():
+        print(n)
 
 #test_tokenizer()
 
